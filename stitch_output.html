@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Outfit:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-white": "#ffffff",
+                    "inverse-primary": "#e9c349",
+                    "tertiary-fixed-dim": "#b4c5ff",
+                    "error": "#ba1a1a",
+                    "surface": "#fef8f6",
+                    "on-secondary-fixed-variant": "#4f453a",
+                    "error-container": "#ffdad6",
+                    "primary": "#735c00",
+                    "secondary-container": "#ecddce",
+                    "on-surface": "#1d1b1a",
+                    "tertiary": "#415ba4",
+                    "surface-bright": "#fef8f6",
+                    "secondary": "#675d51",
+                    "surface-variant": "#e7e1df",
+                    "inverse-surface": "#32302f",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f5efed",
+                    "surface-container": "#f2edeb",
+                    "outline": "#7f7663",
+                    "on-primary-fixed-variant": "#574500",
+                    "tertiary-fixed": "#dbe1ff",
+                    "on-surface-variant": "#4d4635",
+                    "secondary-fixed-dim": "#d2c4b6",
+                    "background-cream": "#fbfaf6",
+                    "surface-container-high": "#ede7e5",
+                    "background": "#fef8f6",
+                    "secondary-fixed": "#efe0d1",
+                    "on-tertiary-container": "#254188",
+                    "surface-tint": "#735c00",
+                    "on-tertiary-fixed-variant": "#27438a",
+                    "on-primary-fixed": "#241a00",
+                    "on-tertiary-fixed": "#00174b",
+                    "on-primary-container": "#554300",
+                    "surface-container-low": "#f8f2f0",
+                    "outline-variant": "#d0c5af",
+                    "primary-container": "#d4af37",
+                    "primary-fixed": "#ffe088",
+                    "surface-dim": "#ded9d7",
+                    "tertiary-container": "#97b0ff",
+                    "on-background": "#1d1b1a",
+                    "accent-taupe": "#8b7d6b",
+                    "on-secondary-container": "#6c6155",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#221a11",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e7e1df",
+                    "primary-fixed-dim": "#e9c349"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "24px",
+                    "section-gap": "120px",
+                    "margin-desktop": "80px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Outfit"],
+                    "headline-sm": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-md": ["Outfit"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "label-sm": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "headline-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbfaf6; /* background-cream fallback */
+        }
+        .luxury-hover:hover .hover-action {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background-cream text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar Component -->
+<header class="fixed top-0 w-full z-50 bg-background-cream/90 backdrop-blur-md border-b border-outline-variant/30">
+<div class="flex flex-col items-center w-full px-margin-desktop py-4 max-w-[1440px] mx-auto">
+<!-- Utility Links -->
+<div class="hidden md:flex justify-between w-full mb-4 border-b border-outline-variant/10 pb-2">
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">GLOBAL SHIPPING</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">GIFT GUIDE</a>
+</div>
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">ORDER TRACKING</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">ACCOUNT</a>
+</div>
+</div>
+<!-- Main Navigation -->
+<div class="flex justify-between items-center w-full">
+<div class="flex items-center gap-4">
+<button class="cursor-pointer active:opacity-70 p-2">
+<span class="material-symbols-outlined text-on-surface">menu</span>
+</button>
+<button class="hidden md:block cursor-pointer active:opacity-70 p-2">
+<span class="material-symbols-outlined text-on-surface">search</span>
+</button>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2">
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight leading-none">Vellut Leather</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="cursor-pointer active:opacity-70 p-2 relative">
+<span class="material-symbols-outlined text-on-surface">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="mt-[140px]">
+<!-- Hero Banner Section -->
+<section class="relative h-[80vh] w-full overflow-hidden">
+<img alt="Premium Leather Duffle Bag" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS1kxoKWAz9gmcJA60ix-0zGCxyYuBwwfopdzkO-QWCu6kOiTdZ_w0DmUnIWUoLT6i1js0feYd8x9HS0_ukJeOgXtR1UWHPS8cpIhhK9YlG0GhkWTBVfdwVS5Rx7_Lumu7h6o-Wc5DpLsDcxjIWQF-EkbYK04oIm_uAN1eaVMBO6_YsetEyWj-_8C5LdRw0arrbJ2MEuOeDfLGrmJuhT_25zb1m1HSqSqJGskoEBn8sab6nkTyOwqSHGrLnUhVKBq1vsxBO0Qr_rQ"/>
+<div class="absolute inset-0 bg-black/5 flex flex-col justify-end p-margin-desktop">
+<div class="max-w-2xl bg-surface-white/20 backdrop-blur-sm p-12 border border-surface-white/30">
+<p class="font-label-md text-label-md uppercase tracking-[0.2em] mb-4 text-on-surface">The Heritage Collection</p>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-6">Timeless Craftsmanship in Every Stitch.</h2>
+<a class="inline-block bg-inverse-surface text-surface-white px-10 py-5 font-label-md text-label-md tracking-widest uppercase hover:bg-primary transition-all duration-300" href="#collection">Shop The Weekender</a>
+</div>
+</div>
+</section>
+<!-- Collection Section -->
+<section class="px-margin-desktop py-section-gap max-w-[1440px] mx-auto" id="collection">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">EXPLORE OUR COLLECTION</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">Curated essentials for the modern traveler, handcrafted with sustainably sourced, full-grain Italian leather.</p>
+</div>
+<!-- Filter Tabs -->
+<div class="flex flex-wrap gap-4 border-b border-outline-variant/30 pb-2">
+<button class="font-label-md text-label-md uppercase tracking-widest border-b-2 border-primary pb-2 px-2">A-Z</button>
+<button class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors pb-2 px-2">COLORS</button>
+<button class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors pb-2 px-2">SIZES</button>
+<button class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors pb-2 px-2">PRICE</button>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-gutter">
+<!-- Card 1 -->
+<div class="luxury-hover group cursor-pointer">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden mb-6">
+<img alt="Vellut Weekender Bag" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7XxYIOoLtAVepX37UOiTmBMk_AQLG25JeTG6HQnJ0c85vB2y6f0-KFyO4auvzRSiWc0QmUJois9_NSJn77c1iacooQl-cVU4BC9gqdfel8ecxI6L3M2EwKZHAuITsfX4KzzocoF9IXfOX-xHidK3lKCVratul2m5K04vKUW63a5tug-ZkvZfxd6m538Djk-2YV24srN_r1SmvyReE-3vrjvuK8qfgLqe2X3qpjF7N2yAOqVFbdijl8niRS-AvXIu80S7Wd0xxpgU"/>
+<div class="hover-action opacity-0 translate-y-4 absolute bottom-6 right-6 flex flex-col gap-3 transition-all duration-300">
+<button class="w-12 h-12 bg-surface-white flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-12 h-12 bg-inverse-surface text-surface-white flex items-center justify-center hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Weekender</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Cognac Calfskin</p>
+</div>
+<span class="font-body-md text-body-md text-primary font-medium">$210.00</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="luxury-hover group cursor-pointer">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden mb-6">
+<img alt="Vellut Briefcase" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7XxYIOoLtAVepX37UOiTmBMk_AQLG25JeTG6HQnJ0c85vB2y6f0-KFyO4auvzRSiWc0QmUJois9_NSJn77c1iacooQl-cVU4BC9gqdfel8ecxI6L3M2EwKZHAuITsfX4KzzocoF9IXfOX-xHidK3lKCVratul2m5K04vKUW63a5tug-ZkvZfxd6m538Djk-2YV24srN_r1SmvyReE-3vrjvuK8qfgLqe2X3qpjF7N2yAOqVFbdijl8niRS-AvXIu80S7Wd0xxpgU"/>
+<div class="hover-action opacity-0 translate-y-4 absolute bottom-6 right-6 flex flex-col gap-3 transition-all duration-300">
+<button class="w-12 h-12 bg-surface-white flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-12 h-12 bg-inverse-surface text-surface-white flex items-center justify-center hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Briefcase</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Noir Pebble Grain</p>
+</div>
+<span class="font-body-md text-body-md text-primary font-medium">$210.00</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="luxury-hover group cursor-pointer">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden mb-6">
+<img alt="Vellut Tote" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7XxYIOoLtAVepX37UOiTmBMk_AQLG25JeTG6HQnJ0c85vB2y6f0-KFyO4auvzRSiWc0QmUJois9_NSJn77c1iacooQl-cVU4BC9gqdfel8ecxI6L3M2EwKZHAuITsfX4KzzocoF9IXfOX-xHidK3lKCVratul2m5K04vKUW63a5tug-ZkvZfxd6m538Djk-2YV24srN_r1SmvyReE-3vrjvuK8qfgLqe2X3qpjF7N2yAOqVFbdijl8niRS-AvXIu80S7Wd0xxpgU"/>
+<div class="hover-action opacity-0 translate-y-4 absolute bottom-6 right-6 flex flex-col gap-3 transition-all duration-300">
+<button class="w-12 h-12 bg-surface-white flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-12 h-12 bg-inverse-surface text-surface-white flex items-center justify-center hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Tote</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Taupe Smooth Leather</p>
+</div>
+<span class="font-body-md text-body-md text-primary font-medium">$210.00</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="luxury-hover group cursor-pointer">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden mb-6">
+<img alt="Vellut Messenger Bag" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7XxYIOoLtAVepX37UOiTmBMk_AQLG25JeTG6HQnJ0c85vB2y6f0-KFyO4auvzRSiWc0QmUJois9_NSJn77c1iacooQl-cVU4BC9gqdfel8ecxI6L3M2EwKZHAuITsfX4KzzocoF9IXfOX-xHidK3lKCVratul2m5K04vKUW63a5tug-ZkvZfxd6m538Djk-2YV24srN_r1SmvyReE-3vrjvuK8qfgLqe2X3qpjF7N2yAOqVFbdijl8niRS-AvXIu80S7Wd0xxpgU"/>
+<div class="hover-action opacity-0 translate-y-4 absolute bottom-6 right-6 flex flex-col gap-3 transition-all duration-300">
+<button class="w-12 h-12 bg-surface-white flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-12 h-12 bg-inverse-surface text-surface-white flex items-center justify-center hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Messenger</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Oak Bark Tanned</p>
+</div>
+<span class="font-body-md text-body-md text-primary font-medium">$210.00</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="luxury-hover group cursor-pointer">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden mb-6">
+<img alt="Vellut Portfolio Case" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7XxYIOoLtAVepX37UOiTmBMk_AQLG25JeTG6HQnJ0c85vB2y6f0-KFyO4auvzRSiWc0QmUJois9_NSJn77c1iacooQl-cVU4BC9gqdfel8ecxI6L3M2EwKZHAuITsfX4KzzocoF9IXfOX-xHidK3lKCVratul2m5K04vKUW63a5tug-ZkvZfxd6m538Djk-2YV24srN_r1SmvyReE-3vrjvuK8qfgLqe2X3qpjF7N2yAOqVFbdijl8niRS-AvXIu80S7Wd0xxpgU"/>
+<div class="hover-action opacity-0 translate-y-4 absolute bottom-6 right-6 flex flex-col gap-3 transition-all duration-300">
+<button class="w-12 h-12 bg-surface-white flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-12 h-12 bg-inverse-surface text-surface-white flex items-center justify-center hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Portfolio</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Slim Saffiano</p>
+</div>
+<span class="font-body-md text-body-md text-primary font-medium">$210.00</span>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="luxury-hover group cursor-pointer">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden mb-6">
+<img alt="Vellut Backpack" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7XxYIOoLtAVepX37UOiTmBMk_AQLG25JeTG6HQnJ0c85vB2y6f0-KFyO4auvzRSiWc0QmUJois9_NSJn77c1iacooQl-cVU4BC9gqdfel8ecxI6L3M2EwKZHAuITsfX4KzzocoF9IXfOX-xHidK3lKCVratul2m5K04vKUW63a5tug-ZkvZfxd6m538Djk-2YV24srN_r1SmvyReE-3vrjvuK8qfgLqe2X3qpjF7N2yAOqVFbdijl8niRS-AvXIu80S7Wd0xxpgU"/>
+<div class="hover-action opacity-0 translate-y-4 absolute bottom-6 right-6 flex flex-col gap-3 transition-all duration-300">
+<button class="w-12 h-12 bg-surface-white flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-12 h-12 bg-inverse-surface text-surface-white flex items-center justify-center hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Backpack</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Urban Commuter Edition</p>
+</div>
+<span class="font-body-md text-body-md text-primary font-medium">$210.00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Narrative Section -->
+<section class="bg-surface-container py-section-gap">
+<div class="px-margin-desktop max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 border border-primary/20 -z-0"></div>
+<img alt="Leather Workshop Detail" class="w-full aspect-square object-cover relative z-10" data-alt="A close-up, high-fashion photograph of a master artisan's hands meticulously hand-stitching a premium cognac leather bag in a sun-drenched, minimalist atelier. The scene exudes high-end boutique quality with soft natural lighting casting delicate shadows across the textured leather. The color palette is rich with earth tones like warm tan, deep mahogany, and creamy beige. The atmosphere is one of focused professional craftsmanship and exclusive luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7XxYIOoLtAVepX37UOiTmBMk_AQLG25JeTG6HQnJ0c85vB2y6f0-KFyO4auvzRSiWc0QmUJois9_NSJn77c1iacooQl-cVU4BC9gqdfel8ecxI6L3M2EwKZHAuITsfX4KzzocoF9IXfOX-xHidK3lKCVratul2m5K04vKUW63a5tug-ZkvZfxd6m538Djk-2YV24srN_r1SmvyReE-3vrjvuK8qfgLqe2X3qpjF7N2yAOqVFbdijl8niRS-AvXIu80S7Wd0xxpgU"/>
+</div>
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-8 leading-tight">The Art of the Slow Process.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Every Vellut piece is the result of hundreds of hours of patient handwork. We believe in materials that age gracefully, developing a unique patina that tells the story of your travels.</p>
+<ul class="space-y-6 mb-12">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">verified</span>
+<div>
+<h5 class="font-headline-sm text-headline-sm text-on-surface">Responsibly Sourced</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Our hides are a byproduct of the food industry, tanned using vegetable extracts.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">precision_manufacturing</span>
+<div>
+<h5 class="font-headline-sm text-headline-sm text-on-surface">Lifetime Guarantee</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">We stand by our construction. Should a seam ever fail, we will repair it for life.</p>
+</div>
+</li>
+</ul>
+<a class="inline-flex items-center gap-4 text-on-surface font-label-md text-label-md tracking-widest uppercase group" href="#">
+                        Discover our process
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full pt-section-gap pb-8 bg-surface-container dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="flex flex-col items-center justify-between px-margin-desktop w-full max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 w-full gap-12 mb-20">
+<div class="flex flex-col items-start">
+<span class="font-headline-sm text-headline-sm text-primary mb-6">Vellut Leather</span>
+<p class="font-body-md text-body-md text-secondary max-w-xs mb-8">Crafting excellence for the discerning individual since 1984.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-[18px]">public</span></a>
+<a class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-[18px]">share</span></a>
+<a class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-[18px]">mail</span></a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h6 class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface mb-2">Navigation</h6>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">About Us</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Contact Us</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Shipping &amp; Delivery Policy</a>
+</div>
+<div class="flex flex-col gap-4">
+<h6 class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface mb-2">Legal</h6>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Return &amp; Refund Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Sustainability Report</a>
+</div>
+</div>
+<div class="w-full border-t border-outline-variant/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">© 2024 Vellut Leather. All Rights Reserved.</span>
+<div class="flex items-center gap-8">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">United Kingdom | GBP £</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary opacity-50">payments</span>
+<span class="material-symbols-outlined text-secondary opacity-50">credit_card</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for header background opacity on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm');
+                header.classList.remove('bg-background-cream/90');
+                header.classList.add('bg-background-cream');
+            } else {
+                header.classList.remove('shadow-sm');
+                header.classList.add('bg-background-cream/90');
+                header.classList.remove('bg-background-cream');
+            }
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body></html>

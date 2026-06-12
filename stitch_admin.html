@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vellut Leather | Admin Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#32302f",
+                        "inverse-on-surface": "#f5efed",
+                        "secondary-fixed": "#efe0d1",
+                        "on-secondary-fixed": "#221a11",
+                        "primary-container": "#d4af37",
+                        "surface": "#fef8f6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-white": "#ffffff",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e7e1df",
+                        "surface-dim": "#ded9d7",
+                        "surface-container-high": "#ede7e5",
+                        "outline-variant": "#d0c5af",
+                        "surface-container-highest": "#e7e1df",
+                        "primary": "#735c00",
+                        "accent-taupe": "#8b7d6b",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-surface-variant": "#4d4635",
+                        "on-secondary-container": "#6c6155",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#554300",
+                        "outline": "#7f7663",
+                        "tertiary-container": "#97b0ff",
+                        "surface-tint": "#735c00",
+                        "secondary": "#675d51",
+                        "on-secondary-fixed-variant": "#4f453a",
+                        "tertiary-fixed": "#dbe1ff",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "surface-container-low": "#f8f2f0",
+                        "surface-container": "#f2edeb",
+                        "primary-fixed": "#ffe088",
+                        "on-tertiary-fixed": "#00174b",
+                        "secondary-fixed-dim": "#d2c4b6",
+                        "secondary-container": "#ecddce",
+                        "on-surface": "#1d1b1a",
+                        "inverse-primary": "#e9c349",
+                        "on-primary-fixed": "#241a00",
+                        "error-container": "#ffdad6",
+                        "background": "#fef8f6",
+                        "on-tertiary-container": "#254188",
+                        "on-background": "#1d1b1a",
+                        "tertiary": "#415ba4",
+                        "surface-bright": "#fef8f6",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "background-cream": "#fbfaf6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "24px",
+                        "section-gap": "120px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Outfit"],
+                        "headline-sm": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "label-sm": ["Outfit"],
+                        "label-md": ["Outfit"],
+                        "body-md": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fef8f6;
+            color: #1d1b1a;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .order-row-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #fef8f6; }
+        ::-webkit-scrollbar-thumb { background: #d0c5af; }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-surface-white border-r border-outline-variant/20 flex flex-col py-8 px-6 gap-8 z-50">
+<div class="flex flex-col gap-1">
+<h1 class="font-headline-sm text-on-surface tracking-tight">Vellut Leather</h1>
+<p class="font-label-sm text-secondary tracking-widest uppercase">Admin Console</p>
+</div>
+<nav class="flex flex-col gap-2">
+<!-- Navigation Items map to JSON labels -->
+<a class="flex items-center gap-3 py-3 px-4 transition-all duration-200 text-secondary hover:text-on-surface hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 transition-all duration-200 text-primary font-medium border-r-2 border-primary bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-md">Orders</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 transition-all duration-200 text-secondary hover:text-on-surface hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md">Products</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 transition-all duration-200 text-secondary hover:text-on-surface hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md">Customers</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 transition-all duration-200 text-secondary hover:text-on-surface hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-8 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="Admin User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCei1ttjDZcrOsl7xI03UBRjmOy4q9fWgZt_cp_FVWsdi3wFxpVKu6DsNn57T9IwxYFNd5Uw9MNpr5d3B49zVDhS7FHsl_CSgTp-mBB7Hg-bR50mhjolpOI8eoum_B8x-O0SV_49pGrLBs_egxNCzfAseXt5nn2mU1m_-qYS-iUy0ZjkqHMwuGrtfoDgJ2CCQHG5dXZDaHVmG_Z-9F9njddFsciwMBC0uX6AxdbOYdnM4x_BWBpiptGURfIqMSfqR0fcK6vZhw58rw"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface">Alessandro V.</span>
+<span class="text-[10px] text-secondary tracking-widest uppercase">Senior Curator</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-20 bg-surface/95 backdrop-blur-sm z-40 px-margin-desktop flex items-center justify-between border-b border-outline-variant/10">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary scale-75">search</span>
+<input class="w-full bg-transparent border-b border-outline-variant/30 py-2 pl-10 pr-4 focus:outline-none focus:border-primary transition-colors font-label-md text-on-surface placeholder:text-secondary/50" placeholder="Search orders, clients, or SKU..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-1.5 h-1.5 bg-primary rounded-full"></span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-28 pb-20 px-margin-desktop min-h-screen">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-md text-on-surface mb-2">Order Fulfillment</h2>
+<p class="font-body-md text-secondary">Manage and track handcrafted leather goods shipments.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2.5 border border-outline text-on-surface font-label-md hover:bg-surface-container transition-colors">Export Report</button>
+<button class="px-6 py-2.5 bg-on-surface text-surface font-label-md hover:bg-accent-taupe transition-colors">Create New Order</button>
+</div>
+</div>
+<!-- Quick Stat Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-section-gap/2">
+<!-- Pending -->
+<div class="bg-surface-white p-8 border border-outline-variant/10 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-secondary uppercase tracking-[0.2em]">Pending Orders</span>
+<span class="material-symbols-outlined text-primary" data-icon="pending">pending</span>
+</div>
+<div class="flex items-baseline gap-3">
+<span class="font-display-lg text-on-surface">12</span>
+<span class="font-label-sm text-error">-2% vs yesterday</span>
+</div>
+<div class="w-full h-1 bg-surface-container-low">
+<div class="w-1/3 h-full bg-primary-container"></div>
+</div>
+</div>
+<!-- Processing -->
+<div class="bg-surface-container-low p-8 border border-outline-variant/10 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-secondary uppercase tracking-[0.2em]">Processing</span>
+<span class="material-symbols-outlined text-accent-taupe" data-icon="settings_slow_motion">settings_slow_motion</span>
+</div>
+<div class="flex items-baseline gap-3">
+<span class="font-display-lg text-on-surface">28</span>
+<span class="font-label-sm text-primary">+8% vs yesterday</span>
+</div>
+<div class="w-full h-1 bg-surface-variant">
+<div class="w-2/3 h-full bg-accent-taupe"></div>
+</div>
+</div>
+<!-- Shipped -->
+<div class="bg-surface-white p-8 border border-outline-variant/10 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-secondary uppercase tracking-[0.2em]">Shipped</span>
+<span class="material-symbols-outlined text-secondary" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="flex items-baseline gap-3">
+<span class="font-display-lg text-on-surface">142</span>
+<span class="font-label-sm text-secondary">Consistent</span>
+</div>
+<div class="w-full h-1 bg-surface-container-low">
+<div class="w-full h-full bg-secondary"></div>
+</div>
+</div>
+</section>
+<!-- Order Management Table -->
+<section class="bg-surface-white border border-outline-variant/10 overflow-hidden">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-center bg-surface-container-low/30">
+<h3 class="font-label-md text-on-surface uppercase tracking-widest">Active Orders</h3>
+<div class="flex gap-4">
+<span class="flex items-center gap-2 text-secondary font-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Priority
+                    </span>
+<span class="flex items-center gap-2 text-secondary font-label-sm">
+<span class="w-2 h-2 rounded-full bg-accent-taupe"></span> International
+                    </span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="font-label-sm text-secondary uppercase tracking-widest bg-surface-container-low/50">
+<th class="px-8 py-5 font-semibold">Order ID</th>
+<th class="px-8 py-5 font-semibold">Customer</th>
+<th class="px-8 py-5 font-semibold">Date</th>
+<th class="px-8 py-5 font-semibold">Total</th>
+<th class="px-8 py-5 font-semibold">Status</th>
+<th class="px-8 py-5"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 (Static) -->
+<tr class="hover:bg-surface-container-low/20 transition-colors group">
+<td class="px-8 py-6 font-label-md text-on-surface">#1026</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-variant flex items-center justify-center text-[10px] font-bold">EM</div>
+<span class="font-body-md">Eleanor Murphy</span>
+</div>
+</td>
+<td class="px-8 py-6 text-secondary">Oct 24, 2023</td>
+<td class="px-8 py-6 font-medium text-on-surface">$1,240.00</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] uppercase font-bold tracking-tighter">Shipped</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">more_vert</button>
+</td>
+</tr>
+<!-- Row 2 (Expanded Order #1024) -->
+<tr class="bg-surface-container-low/40">
+<td class="px-8 py-6 font-label-md text-primary font-bold">#1024</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary-container text-on-primary-container flex items-center justify-center text-[10px] font-bold">JL</div>
+<span class="font-body-md font-medium">Julian Laurent</span>
+</div>
+</td>
+<td class="px-8 py-6 text-on-surface">Oct 23, 2023</td>
+<td class="px-8 py-6 font-medium text-on-surface">$3,850.00</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-primary-container text-on-primary-container text-[10px] uppercase font-bold tracking-tighter">Processing</span>
+</td>
+<td class="px-8 py-6 text-right">
+<span class="material-symbols-outlined text-primary rotate-180 transition-transform">expand_more</span>
+</td>
+</tr>
+<!-- Expanded Panel -->
+<tr class="bg-surface-container-low/40">
+<td class="px-8 pb-10" colspan="6">
+<div class="bg-surface-white border border-outline-variant/30 p-8 flex flex-col md:flex-row gap-12">
+<!-- Image / Product Snapshot -->
+<div class="w-full md:w-1/3">
+<div class="aspect-[4/3] bg-surface-variant mb-4 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A high-end, close-up photograph of a handcrafted full-grain leather weekender bag in a rich mahogany brown. The bag sits on a minimalist white marble surface with soft, natural morning light casting gentle shadows. The stitching is visible and precise, highlighting the premium craftsmanship. The background is a clean, out-of-focus cream-colored wall, creating a sophisticated and luxurious boutique atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZZCIgcoQMmke37qGKaHtt0pO76uJa6wVtzpNiWvdV3RfySQMYbzo9lmZPeD4hrBhPKD-p37EezktfoOl1kuf3oM00tliDjV0KUmdkY7NAwLi_1wQEMR_IK3f3zjMNII_dhO0VDYyi9RZphFXnkjgegvH-nHmHzCSDOBXGHUnCFYpSlyzEtEKpb3cUS1jUoKXNMr9nwQOaj3F1qFKoFfAUW1Z_q8QwHj2r1vPKsIkbzqByf8n2bX4alQx4sc5h93pkqzov4kf_Vig"/>
+</div>
+<h4 class="font-headline-sm text-on-surface text-lg mb-1">Grande Voyageur Weekender</h4>
+<p class="text-secondary text-sm">Full-Grain Mahogany / Hand-Stitched Brass Hardware</p>
+</div>
+<!-- Shipment Detail Form -->
+<div class="flex-1 flex flex-col justify-between">
+<div class="grid grid-cols-2 gap-8 mb-8">
+<div>
+<p class="font-label-sm text-secondary uppercase tracking-widest mb-2">Shipping Address</p>
+<p class="font-body-md text-on-surface leading-relaxed">
+                                                    742 Rue de Rivoli,<br/>
+                                                    75001 Paris, France
+                                                </p>
+</div>
+<div>
+<p class="font-label-sm text-secondary uppercase tracking-widest mb-2">Internal Note</p>
+<p class="font-body-md italic text-accent-taupe">
+                                                    "Gift wrap with personalized leather tag 'J.L.' required."
+                                                </p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="relative">
+<label class="block font-label-sm text-secondary uppercase tracking-widest mb-3">FedEx/DHL Tracking Number</label>
+<input class="w-full bg-surface-container-low border border-outline-variant/40 py-4 px-4 font-body-md focus:outline-none focus:border-primary focus:bg-white transition-all" placeholder="e.g. 7748 1294 1029" type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex-1 bg-on-surface text-surface py-4 font-label-md uppercase tracking-[0.2em] hover:bg-primary transition-all active:scale-[0.98]">
+                                                    Save &amp; Send Email
+                                                </button>
+<button class="px-6 py-4 border border-outline-variant text-secondary font-label-md uppercase tracking-widest hover:border-on-surface hover:text-on-surface transition-all">
+                                                    Print Label
+                                                </button>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Row 3 (Static) -->
+<tr class="hover:bg-surface-container-low/20 transition-colors group">
+<td class="px-8 py-6 font-label-md text-on-surface">#1023</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-variant flex items-center justify-center text-[10px] font-bold">ST</div>
+<span class="font-body-md">Satoshi Tanaka</span>
+</div>
+</td>
+<td class="px-8 py-6 text-secondary">Oct 23, 2023</td>
+<td class="px-8 py-6 font-medium text-on-surface">$590.00</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-surface-container text-secondary text-[10px] uppercase font-bold tracking-tighter">Delivered</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination-ish footer -->
+<div class="p-8 border-t border-outline-variant/10 flex justify-between items-center text-secondary">
+<p class="font-label-sm">Showing 1-10 of 1,240 orders</p>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-on-surface hover:text-surface transition-colors">
+<span class="material-symbols-outlined scale-75">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center border border-on-surface bg-on-surface text-surface">1</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-on-surface hover:text-surface transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-on-surface hover:text-surface transition-colors">3</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-on-surface hover:text-surface transition-colors">
+<span class="material-symbols-outlined scale-75">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<footer class="ml-64 px-margin-desktop py-12 border-t border-outline-variant/10 text-secondary">
+<div class="flex justify-between items-center">
+<p class="font-label-sm tracking-widest uppercase">Vellut Leather © 2023 — Operational Excellence</p>
+<div class="flex gap-8 font-label-sm uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Security</a>
+<a class="hover:text-primary transition-colors" href="#">API Docs</a>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for tracking number input
+        const trackingInput = document.querySelector('input[placeholder*="e.g. 7748"]');
+        if(trackingInput) {
+            trackingInput.addEventListener('focus', () => {
+                trackingInput.parentElement.querySelector('label').classList.add('text-primary');
+            });
+            trackingInput.addEventListener('blur', () => {
+                trackingInput.parentElement.querySelector('label').classList.remove('text-primary');
+            });
+        }
+
+        // Generic button ripple effect simplified
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', function(e) {
+                this.classList.add('opacity-80');
+            });
+            button.addEventListener('mouseup', function(e) {
+                this.classList.remove('opacity-80');
+            });
+        });
+    </script>
+</body></html>
