@@ -96,7 +96,24 @@ function CheckoutForm() {
 
       if (!response.ok) throw new Error('Order creation failed on our end.');
 
-      // 4. Complete checkout flow
+      const orderData = await response.json().catch(() => ({}));
+      const orderRef = orderData?.id ? `#VL-${String(orderData.id).slice(-4).toUpperCase()}` : '#VL-CONF';
+
+      // 4. Send order confirmation email to customer (fire-and-forget)
+      fetch('/api/send-order-confirmation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          customerName: formData.name,
+          email: formData.email,
+          orderRef,
+          items: items.map(i => ({ name: i.name, quantity: i.quantity, price: i.price })),
+          total: subtotal,
+          currency: 'USD',
+        }),
+      }).catch(err => console.warn('[Checkout] Could not send confirmation email:', err));
+
+      // 5. Complete checkout flow
       clearCart();
       router.push('/checkout/success');
 
@@ -154,20 +171,40 @@ function CheckoutForm() {
             layout: 'tabs',
           }} />
         </div>
+        {/* Secured by Stripe badge */}
+        <div className="flex items-center justify-center gap-2 mt-4 text-secondary">
+          <span className="material-symbols-outlined text-[16px]" aria-hidden="true">lock</span>
+          <span className="font-label-sm text-[11px] uppercase tracking-widest">Secured by Stripe · 256-bit SSL Encryption · PCI-DSS Compliant</span>
+        </div>
       </div>
 
-      <button
-        type="submit"
-        disabled={!stripe || loading || items.length === 0}
-        className="w-full bg-primary text-white py-5 font-label-md uppercase tracking-widest hover:bg-[#5a4800] transition-colors disabled:opacity-50 flex justify-center items-center gap-2 cursor-pointer"
-      >
-        {loading ? (
-          <span className="material-symbols-outlined animate-spin text-[20px]">refresh</span>
-        ) : (
-          <span className="material-symbols-outlined text-[20px]">lock</span>
-        )}
-        {loading ? 'Processing...' : `Pay $${subtotal.toFixed(2)}`}
-      </button>
+      {/* Legal consent + Pay button */}
+      <div className="flex flex-col gap-3">
+        <p className="font-body-sm text-[11px] text-secondary text-center leading-relaxed">
+          By placing your order you agree to our{' '}
+          <a href="/terms" target="_blank" className="text-primary hover:underline underline-offset-2">Terms of Service</a>
+          {', '}
+          <a href="/returns" target="_blank" className="text-primary hover:underline underline-offset-2">Return &amp; Refund Policy</a>
+          {', and '}
+          <a href="/shipping-global" target="_blank" className="text-primary hover:underline underline-offset-2">Shipping Policy</a>.
+          {' '}You have a 14-day right to cancel after receiving your goods.
+        </p>
+        <button
+          type="submit"
+          disabled={!stripe || loading || items.length === 0}
+          className="w-full bg-primary text-white py-5 font-label-md uppercase tracking-widest hover:bg-[#5a4800] transition-colors disabled:opacity-50 flex justify-center items-center gap-2 cursor-pointer"
+        >
+          {loading ? (
+            <span className="material-symbols-outlined animate-spin text-[20px]">refresh</span>
+          ) : (
+            <span className="material-symbols-outlined text-[20px]">lock</span>
+          )}
+          {loading ? 'Processing...' : `Pay $${subtotal.toFixed(2)}`}
+        </button>
+        <p className="font-body-sm text-[10px] text-secondary/60 text-center">
+          All prices in USD ($) · ZEESHAN RAZZAQ LLC · Registered in USA
+        </p>
+      </div>
     </form>
   );
 }
@@ -258,8 +295,15 @@ export default function CheckoutPage() {
                   <div className="h-[1px] w-full bg-outline-variant/30 my-2" />
                   <div className="flex justify-between text-on-surface">
                     <span className="font-headline-sm text-lg">Total</span>
-                    <span className="font-headline-sm text-xl">${subtotal.toFixed(2)}</span>
+                    <span className="font-headline-sm text-xl">${subtotal.toFixed(2)} USD</span>
                   </div>
+                  <a
+                    href="/returns"
+                    target="_blank"
+                    className="font-body-sm text-[10px] text-secondary hover:text-primary transition-colors underline underline-offset-2 text-center"
+                  >
+                    14-day cancellation &amp; return right
+                  </a>
                 </div>
               </div>
             </div>

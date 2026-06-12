@@ -20,8 +20,14 @@ export default function Footer() {
               Crafting premium leather travel goods for the modern adventurer.
             </p>
             <p className="font-body-sm text-xs text-secondary/70 mb-1">ZEESHAN RAZZAQ LLC</p>
-            <p className="font-body-sm text-xs text-secondary/70 mb-6">
+            <p className="font-body-sm text-xs text-secondary/70 mb-1">
               1500 N GRANT ST STE 34785, DENVER COLORADO CO 80203, USA
+            </p>
+            <p className="font-body-sm text-xs text-secondary/70 mb-1">
+              <a href="mailto:support@vellutleather.shop" className="hover:text-primary transition-colors">support@vellutleather.shop</a>
+            </p>
+            <p className="font-body-sm text-xs text-secondary/70 mb-6">
+              <a href="tel:+13078889612" className="hover:text-primary transition-colors">+1 307 888 9612</a>
             </p>
             <div className="flex gap-4">
               <a

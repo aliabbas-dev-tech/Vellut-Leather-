@@ -22,9 +22,12 @@ export default function ProductActions({ product }: { product: any }) {
 
   return (
     <div className="flex flex-col gap-6">
-      <p className="font-headline-md text-2xl text-primary mb-2">
-        ${currentPrice.toFixed(2)}
-      </p>
+      <div>
+        <p className="font-headline-md text-2xl text-primary mb-0.5">
+          ${currentPrice.toFixed(2)}
+        </p>
+        <p className="font-body-sm text-[10px] text-secondary/70 uppercase tracking-widest">All prices in USD (US Dollars)</p>
+      </div>
       {/* Options */}
       <div className="grid grid-cols-2 gap-4">
         <div className="flex flex-col gap-2">

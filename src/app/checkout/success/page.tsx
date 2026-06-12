@@ -108,7 +108,7 @@ function CheckoutSuccessContent() {
               step: '02',
               icon: 'local_shipping',
               title: 'Fast Dispatch & Tracking',
-              body: 'Your premium leather traveling bag is being prepared. Estimated delivery timeline is 3-5 business days.',
+              body: 'As each piece is handcrafted to order, please allow 7–14 business days for production, then 3–7 business days for global delivery. Total estimated time: 10–21 business days. You will receive a tracking number by email once dispatched.',
             },
             {
               step: '04',
