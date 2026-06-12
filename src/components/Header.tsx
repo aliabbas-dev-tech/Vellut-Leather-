@@ -72,15 +72,15 @@ export default function Header() {
           borderColor: 'rgba(0, 0, 0, 0.05)',
         }}
       >
-        <div className="flex flex-col items-center w-full px-6 md:px-margin-desktop py-4">
+        <div className="flex flex-col items-center w-full px-6 md:px-margin-desktop py-2">
 
           {/* ── Utility Bar (desktop only) ──────────────────────────────── */}
-          <div className="hidden md:flex justify-between w-full mb-4 border-b border-outline-variant/10 pb-2">
+          <div className="hidden md:flex justify-between w-full mb-1 border-b border-outline-variant/10 pb-1">
             <nav aria-label="Utility navigation">
-              <ul className="flex gap-8 list-none m-0 p-0">
+              <ul className="flex gap-6 list-none m-0 p-0">
                 <li>
                   <Link
-                    className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
+                    className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
                     href="/shipping-global"
                   >
                     Global Shipping
@@ -88,7 +88,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
+                    className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
                     href="/gift-guide"
                   >
                     Gift Guide
@@ -97,10 +97,10 @@ export default function Header() {
               </ul>
             </nav>
             <nav aria-label="Account navigation">
-              <ul className="flex gap-8 list-none m-0 p-0">
+              <ul className="flex gap-6 list-none m-0 p-0">
                 <li>
                   <Link
-                    className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
+                    className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
                     href="/tracking"
                   >
                     Order Tracking
@@ -108,7 +108,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
+                    className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
                     href={getAccountLink()}
                   >
                     {mounted ? getAccountText() : 'ACCOUNT'}
@@ -119,7 +119,7 @@ export default function Header() {
           </div>
 
           {/* ── Main Header Row ─────────────────────────────────────────── */}
-          <div className="flex justify-between items-center w-full relative h-10">
+          <div className="flex justify-between items-center w-full relative h-12">
 
             {/* Left: Burger + Search */}
             <div className="flex items-center gap-4">
@@ -170,19 +170,16 @@ export default function Header() {
           </div>
 
           {/* ── Desktop Primary Navigation ──────────────────────────────── */}
-          {/* Visible inline nav so Googlebot indexes these category links   */}
+          {/* sr-only: invisible to users, fully crawlable by Googlebot     */}
           <nav
             aria-label="Main navigation"
-            className="hidden md:flex w-full justify-center mt-3 border-t border-outline-variant/10 pt-3"
+            className="sr-only"
           >
             <ul className="flex items-center gap-10 list-none m-0 p-0">
               {PRIMARY_NAV_LINKS.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className={`font-label-sm text-label-sm uppercase tracking-widest transition-colors hover:text-primary ${
-                      pathname === href ? 'text-primary border-b border-primary pb-0.5' : 'text-on-surface-variant'
-                    }`}
                     aria-current={pathname === href ? 'page' : undefined}
                   >
                     {label}

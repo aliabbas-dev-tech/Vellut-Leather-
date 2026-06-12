@@ -188,7 +188,7 @@ export default function RootLayout({
       </head>
       <body className={`${playfair.variable} ${outfit.variable} antialiased`}>
         <Header />
-        <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', paddingTop: '100px' }}>
+        <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', paddingTop: '75px' }}>
           {children}
         </main>
         <Footer />
