@@ -88,12 +88,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic Category Routes
   const { data: collections } = await supabase.from('collections').select('name');
-  const categoryRoutes = (collections || []).map((collection) => ({
-    url: `${BASE_URL}/${collection.name.toLowerCase().replace(/ /g, '-')}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
+  const categoryRoutes = (collections || []).map((collection) => {
+    const slug = collection.name
+      .toLowerCase()
+      .replace(/&/g, 'and')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+    
+    return {
+      url: `${BASE_URL}/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    };
+  });
 
   return [...staticRoutes, ...categoryRoutes, ...productRoutes];
 }
